@@ -682,3 +682,27 @@ strong{
   	}
   }
 }
+
+//WORK SINGLE
+.work-single{
+	.img{
+		@include media-breakpoint-down(sm){
+			height: 600px;
+		}
+	}
+	.text{
+		h2{
+			font-size: 16px;
+			text-transform: uppercase;
+			font-weight: 700;
+			letter-spacing: 2px;
+		}
+	}
+	.work-info{
+		h3{
+			font-size: 12px;
+			text-transform: uppercase;
+			font-weight: 700;
+		}
+	}
+}
