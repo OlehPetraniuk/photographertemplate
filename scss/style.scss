@@ -1747,3 +1747,265 @@ textarea.form-control {
 		float: right;
 	}
 }
+
+/* Blog*/
+.post-info {
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: $white;
+	letter-spacing: .1em;
+	> div {
+		display: inline-block;
+
+		.seperator {
+			display: inline-block;
+			margin: 0 10px;
+			opacity: .5;
+		}
+	}
+}
+
+.tagcloud {
+	a {
+		text-transform: uppercase;
+		display: inline-block;
+		padding: 4px 10px;
+		margin-bottom: 7px;
+		margin-right: 4px;
+		border-radius: 4px;
+		color: rgba(255,255,255,7);
+		color: $primary;
+		border: 1px solid rgba(255,255,255,.1);
+		font-size :12px;
+		&:hover {
+			border: 1px solid $primary;
+			background: $primary;
+			color: $white;
+		}
+	}
+}
+
+.comment-form-wrap {
+	clear: both;
+	.comment-form{
+		.form-control{
+			@include border-radius(5px);
+			border: 1px solid rgba(255,255,255,.1) !important;
+			background: rgba(0,0,0,.9) !important;
+		}
+	}
+}
+
+.comment-list {
+	padding: 0;
+	margin: 0;
+	.children {
+		padding: 50px 0 0 40px;
+		margin: 0;
+		float: left;
+		width: 100%;
+	}
+	li {
+		padding: 0;
+		margin: 0 0 30px 0;
+		float: left;
+		width: 100%;
+		clear: both;
+		list-style: none;
+		.comment-wrap{
+			border: 1px solid red;
+		}
+		.vcard {
+			width: 80px;
+			float: left;
+			img {
+				width: 50px;
+				border-radius: 50%;
+			}
+		}
+		.comment-body {
+			float: right;
+			width: calc(100% - 80px);
+			padding: 20px;
+			position: relative;
+			&:after{
+				position: absolute;
+				left: -15px;
+				top: 5px;
+				content: '';
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 10px 15px 10px 0;
+				border-color: transparent #000 transparent transparent;
+			}
+			@include border-radius(5px);
+			h3 {
+				font-size: 20px;
+			}
+			.meta {
+				text-transform: uppercase;
+				font-size: 12px;
+				letter-spacing: .1em;
+				color: lighten($darken,50%);
+				color: $primary;
+				font-weight: 600;
+				margin-bottom: 20px;
+			}
+			.reply {
+				padding: 5px 10px;
+				background: $primary;
+				color: $white;
+				text-transform: uppercase;
+				font-size: 11px;
+				letter-spacing: .1em;
+				font-weight: 400;
+				border-radius: 4px;
+				&:hover {
+					color: $white;
+					background: lighten($black, 0%);
+				}
+			}
+		}
+	}
+}
+
+.search-form {
+	background: lighten($black, 10%);
+	padding: 10px;
+
+	.form-group {
+		position: relative;
+		input {
+			padding-right: 50px;
+			background: $white !important;
+			border: none;
+		}
+	}
+	.icon {
+		position: absolute;
+		top: 50%;
+		right: 20px;
+		transform: translateY(-50%);
+		color: $primary;
+	}
+}
+
+// sidebar
+.sidebar-box {
+	margin-bottom: 30px;
+	padding: 25px;
+	font-size: 15px;
+	width: 100%;
+	h3 {
+		font-size: 30px;
+		margin-bottom: 15px;
+		color: $white;
+	}
+}
+
+.categories, .sidelink {
+	li {
+		position: relative;
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid rgba(255,255,255,.1);
+		list-style: none;
+		text-transform: uppercase;
+		font-weight: 600;
+		font-size: 12px;
+		&:last-child {
+			margin-bottom: 0;
+			border-bottom: none;
+			padding-bottom: 0;
+		}
+		a {
+			display: block;
+			color: $primary;
+			span {
+				position: absolute;
+				right: 0;
+				top: 0;
+				color: #ccc;
+			}
+		}
+		&.active {
+			a {
+				color: $black;
+				font-style: italic;
+			}
+		}
+	}
+}
+
+#ftco-loader {
+	position: fixed;
+	width:  96px;
+	height: 96px;
+	left:  50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(255,255,255,0.9);
+	box-shadow: 0px 24px 64px rgba(0,0,0,0.24);
+	border-radius:16px;
+	opacity: 0; 
+	visibility: hidden;
+	transition: opacity .2s ease-out, visibility 0s linear .2s;
+	z-index:1000;
+}
+
+#ftco-loader.fullscreen {
+	padding:  0;
+	left:  0;
+	top:  0;
+	width:  100%;
+	height: 100%;
+	transform: none;
+	background-color: #fff;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+#ftco-loader.show {
+	transition: opacity .4s ease-out, visibility 0s linear 0s;
+	visibility: visible;
+	opacity: 1;
+}
+
+#ftco-loader .circular {
+  animation: loader-rotate 2s linear infinite;
+  position: absolute;
+  left:  calc(50% - 24px);
+  top:  calc(50% - 24px);
+  display: block;
+  transform: rotate(0deg);
+}
+
+#ftco-loader .path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: loader-dash 1.5s ease-in-out infinite;
+  stroke-linecap: round;
+}
+
+@keyframes loader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -136px;
+  }
+}
